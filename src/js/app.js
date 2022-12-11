@@ -5,7 +5,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const ul = document.querySelector("ul");
 
-  let url = "https://pokeapi.co/api/v2/pokemon";
+  let url = "https://pokeapi.co/api/v2/pokemon?limit={pokemonCount}";
 
   fetch(url)
     .then((resp) => resp.json())
@@ -13,7 +13,7 @@ window.addEventListener("DOMContentLoaded", () => {
       let arr = data.results;
       for (let i = 0; i < 10; i++) {
         let li = document.createElement("li");
-        li.innerHTML = ` ${arr[i].name}`;
+        li.innerText = ` ${arr[i].name}`;
         ul.appendChild(li);
       }
       // let arr= data.results
