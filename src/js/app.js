@@ -7,7 +7,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // let url = "https://pokeapi.co/api/v2/pokemon";
   for (let pokemonCount = 0; pokemonCount < 10; pokemonCount++) {
-    fetch(`https://pokeapi.co/api/v2/pokemon?limit={pokemonCount}`)
+    fetch(`https://pokeapi.co/api/v2/pokemon/?limit={pokemonCount}`)
       .then((resp) => resp.json())
       .then((data) => {
         let arr = data.results;
