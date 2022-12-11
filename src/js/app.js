@@ -5,19 +5,15 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const ul = document.querySelector("ul");
 
-  let url = "https://pokeapi.co/api/v2/pokemon?limit={pokemonCount}";
-
-  fetch(url)
-    .then((resp) => resp.json())
-    .then((data) => {
-      let arr = data.results;
-      for (let i = 0; i < 10; i++) {
+  // let url = "https://pokeapi.co/api/v2/pokemon";
+  for (let pokemonCount = 0; pokemonCount < 10; pokemonCount++) {
+    fetch(`https://pokeapi.co/api/v2/pokemon?limit={pokemonCount}`)
+      .then((resp) => resp.json())
+      .then((data) => {
+        let arr = data.results;
         let li = document.createElement("li");
-        li.innerText = ` ${arr[i].name}`;
+        li.innerHTML = ` ${arr[pokemonCount].name}`;
         ul.appendChild(li);
-      }
-      // let arr= data.results
-      // console.log(arr[0].name);
-      // console.log(Object.entries(data))
-    });
+      });
+  }
 });
